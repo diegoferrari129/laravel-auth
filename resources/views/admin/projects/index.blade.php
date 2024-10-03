@@ -4,8 +4,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h2>Projects</h2>
+                <div class="pt-4 d-flex justify-content-between align-items-center">
+                    <div>
+                        <h2>Projects</h2>
+                    </div>
+                    <div>
+                        <a href="{{ route('admin.projects.create') }}" class="btn btn-sm btn-success">Add Project</a>
+                    </div>
+                </div>
             </div>
+            <hr>
             <div class="col-12">
                 <table class="table table-striped">
                     <thead>
@@ -16,8 +24,8 @@
                             <td>REPOSITORY</td>
                             <td>TECHNOLOGIES</td>
                             <td>STATUS</td>
-                            <td>START DATE</td>
-                            <td>END DATE</td>
+                            <td>START</td>
+                            <td>END</td>
                             <td>SLUG</td>
                         </tr>
                     </thead>
