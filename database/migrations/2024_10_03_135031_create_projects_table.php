@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('status', 20)->default('work in progress');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->string('slug');
             $table->timestamps();
         });
     }
