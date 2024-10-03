@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
 
+
 class ProjectController extends Controller
 {
     /**
@@ -38,7 +39,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Project::generateSlug($form_data['title']);
+
+        $form_data['slug'] = $slug;
+
+        $project = new Project();
+
+        $project->fill($form_data);
+
+        $project->save();
+
+        return redirect()->route('admin.projects.index');
     }
 
     /**
