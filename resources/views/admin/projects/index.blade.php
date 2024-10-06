@@ -43,14 +43,27 @@
                                 <td>{{ $project->end_date }}</td>
                                 <td>{{ $project->slug }}</td>
                                 <td>
-                                    <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
-                                        class="btn btn-sm btn-primary">
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
-                                        class="btn btn-sm btn-warning">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
+                                    <div class="d-flex">
+
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}"
+                                            class="btn btn-sm btn-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                            class="btn btn-sm btn-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+
+                                        <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger delete-project">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach
@@ -59,4 +72,5 @@
             </div>
         </div>
     </div>
+    @include('admin.projects.partials.modal_delete')
 @endsection
