@@ -27,6 +27,21 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|max:50',
             'description' => 'required',
             'repository' => 'required',
+            'start_date' => 'required',
+            'status' => 'required|max:20',
         ];
     }
+
+    public function messages(){
+        return [
+            'title.required' => 'Title is required',
+            'title.max' => 'Max characters length is 50',
+            'description.required' => 'Description is required',
+            'repository.required' => 'Link is required',
+            'start_date.required' => 'Start date is required',
+            'status.required' => 'Status is required',
+            'status.max' => 'Max characters length is 20'
+        ];
+    }
+        
 }

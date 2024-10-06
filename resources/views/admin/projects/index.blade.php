@@ -47,6 +47,10 @@
                                         class="btn btn-sm btn-primary">
                                         <i class="fas fa-eye"></i>
                                     </a>
+                                    <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}"
+                                        class="btn btn-sm btn-warning">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
