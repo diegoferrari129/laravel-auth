@@ -72,7 +72,7 @@
                         <div class="col-12">
                             <label for="" class="control-label">Description</label>
                             <textarea name="description" id="description" rows="10" cols="30"
-                                class="form-control form-control-sm @error('description')is-invalid @enderror" value="{{ old('description') }}">...</textarea>
+                                class="form-control form-control-sm @error('description')is-invalid @enderror" value="{{ old('description') }}"></textarea>
                             @error('description')
                                 <span class="text-danger">
                                     {{ $message }}

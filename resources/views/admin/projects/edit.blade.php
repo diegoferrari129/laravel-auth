@@ -74,7 +74,7 @@
                         <div class="col-12">
                             <label for="" class="control-label">Description</label>
                             <textarea name="description" id="description" rows="10" cols="30"
-                                class="form-control form-control-sm @error('description')is-invalid @enderror" value="{{ old('description') }}">...</textarea>
+                                class="form-control form-control-sm @error('description')is-invalid @enderror" value="{{ old('description') }}"></textarea>
                             @error('description', $project->description)
                                 <span class="text-danger">
                                     {{ $message }}
@@ -84,7 +84,7 @@
 
                         <div class="col-12">
                             <div class="pt-1">
-                                <button type="submit" class="btn btn-success">Add</button>
+                                <button type="submit" class="btn btn-success">Edit</button>
                             </div>
                         </div>
                     </div>
