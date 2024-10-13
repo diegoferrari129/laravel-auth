@@ -29,6 +29,7 @@ class StoreProjectRequest extends FormRequest
             'repository' => 'required',
             'start_date' => 'required',
             'status' => 'required|max:20',
+            'image' => 'nullable|image|max:4084',
         ];
     }
 
@@ -40,7 +41,9 @@ class StoreProjectRequest extends FormRequest
             'repository.required' => 'Link is required',
             'start_date.required' => 'Start date is required',
             'status.required' => 'Status is required',
-            'status.max' => 'Max characters length is 20'
+            'status.max' => 'Max characters length is 20',
+            'image.image' => 'File must be a image',
+            'image.max' => 'Image is too big',
         ];
     }
         

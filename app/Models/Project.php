@@ -18,7 +18,8 @@ class Project extends Model
         'status',
         'start_date',
         'end_date',
-        'slug'
+        'slug',
+        'image',
     ];
 
     public static function generateSlug($title){

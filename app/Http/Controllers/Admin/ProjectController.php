@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProjectController extends Controller
@@ -46,6 +47,11 @@ class ProjectController extends Controller
         $form_data['slug'] = $slug;
 
         $project = new Project();
+
+        if($request->hasfile('image')){
+            $path = Storage::put('projects_image', $form_data['image']);
+            $form_data['image'] =$path;
+        }
 
         $project->fill($form_data);
 
