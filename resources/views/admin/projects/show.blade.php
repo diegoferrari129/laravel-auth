@@ -7,6 +7,8 @@
                 <div class="py-5">
                     <span>ID= {{ $project->id }}</span>
                     <span class="ps-5">SLUG= {{ $project->slug }}</span>
+                    <img src="{{ $project->image !== null ? asset('./storage/' . $project->image) : 'https://placehold.co/600x400' }}"
+                        alt="{{ $project->title }}" class="img-fluid">
                     <h3 class="pt-2">
                         Title: {{ $project->title }}
                     </h3>
