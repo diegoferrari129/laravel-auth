@@ -50,7 +50,7 @@ class ProjectController extends Controller
 
         if($request->hasfile('image')){
             $path = Storage::put('projects_image', $form_data['image']);
-            $form_data['image'] =$path;
+            $form_data['image'] = $path;
         }
 
         $project->fill($form_data);
@@ -92,7 +92,18 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->validated();
-        $form_data['slug'] = Project::generateSlug($form_data['title'], ' ');
+
+        if($request->hasfile('image')){
+            if($project->image != null){
+                Storage::delete($project->image);
+            }
+
+            $path = Storage::put('projects_image', $form_data['image']);
+            $form_data['image'] = $path;
+        }
+
+        $form_data['slug'] = Project::generateSlug($form_data['title']);
+        
         $project->update($form_data);
 
         return redirect()->route('admin.projects.index');

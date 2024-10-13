@@ -9,10 +9,20 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post">
+                <form action="{{ route('admin.projects.update', ['project' => $project->id]) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row gy-4">
+                        <div class="col-4">
+                            <img src="{{ $project->image !== null ? asset('./storage/' . $project->image) : 'https://placehold.co/600x400' }}"
+                                alt="{{ $project->title }}" class="img-fluid">
+                        </div>
+                        <div class="col-4">
+                            <label for="" class="control-label">Image</label>
+                            <input type="file" name="image" id="image" placeholder="..."
+                                class="form-control form-control-sm">
+                        </div>
                         <div class="col-4">
                             <label for="" class="control-label">Title</label>
                             <input type="text" name="title" id="title" placeholder="..."
